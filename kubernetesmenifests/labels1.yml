@@ -1,0 +1,13 @@
+kind: Pod
+apiVersion: v1
+metadata:
+    name: labelpod1
+    labels:
+       day: thu
+       skill: dev
+
+spec: 
+    containers:
+       - name: cl01
+         image: nginx
+         command: ["/bin/bash","-c","while true; do echo Hi Jinna; sleep 4; done"]

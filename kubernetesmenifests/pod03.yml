@@ -1,0 +1,20 @@
+kind: Pod
+apiVersion: v1
+metadata:
+    name: testpod03
+    annotations:
+        description: Hi This is testpod03
+spec:
+    containers:
+        - name: cont1
+          image: centos
+          command: ["/bin/bash","-c","while true; do echo 'JINNNNA'; sleep 4; done"]
+
+        - name: cont2
+          image: centos
+          command: ["/bin/bash","-c","while true; do echo 'Y Bros'; sleep 4; done"]
+
+          env:
+            - name: MYNAME
+              value: jinendra
+

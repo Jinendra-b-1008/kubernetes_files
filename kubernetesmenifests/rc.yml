@@ -1,0 +1,19 @@
+kind: ReplicationController
+apiVersion: v1
+metadata:
+     name: replicationcontroller
+spec:
+     replicas: 2
+     selector:
+         myname: jinu
+
+     template:
+       metadata:
+          labels:
+            myname: jinu
+
+       spec:
+          containers:
+              - name: rc01
+                image: ubuntu
+                command: ["/bin/bash","-c","while true; do echo Replction Contl; sleep 5; done"]

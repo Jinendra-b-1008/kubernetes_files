@@ -1,0 +1,19 @@
+kind: Pod
+apiVersion: v1
+metadata:
+    name: myhostpath
+
+spec:
+   containers:
+       - name: c01
+         image: ubuntu
+         command: ["/bin/bash","-c","while true; do echo Hi Jinnu; sleep 3; done"]
+
+         volumeMounts:
+               - name: testvol
+                 mountPath: "/tmp/contdir"
+
+   volumes:
+        - name: testvol
+          hostPath:
+               path: "/tmp/hostdir"

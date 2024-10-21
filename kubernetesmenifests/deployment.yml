@@ -1,0 +1,22 @@
+kind: Deployment
+apiVersion: apps/v1
+metadata:
+    name: mydeployment
+
+spec:
+    replicas: 2
+    selector:
+      matchLabels: 
+          objname: dep
+
+    template:
+      metadata:
+        labels:
+           objname: dep
+
+      spec:
+         containers:
+              - name: c01
+                image: ubuntu
+                command: ["/bin/bash","-c","while true; do echo Hi Deployments to all jinnu; sleep 3; done"] 
+

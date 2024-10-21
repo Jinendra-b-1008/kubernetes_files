@@ -1,0 +1,20 @@
+kind: Pod
+apiVersion: v1
+metadata:
+    name: myinterpod
+spec:
+    containers:
+         - name: c01
+           image: ubuntu
+           command: ["/bin/bash","-c","while true; do echo Hi Network; sleep 5; done"]
+
+         - name: c02
+           image: httpd
+           ports:
+              - containerPort: 80
+
+         - name: c03
+           image: centos
+           ports:
+              - containerPort: 8080
+          

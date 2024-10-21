@@ -1,0 +1,14 @@
+kind: Pod
+apiVersion: v1
+metadata:
+    name: podlabel2
+    annotations:
+            description: This is annotation for label2
+    labels:
+         day: fri
+         class: kubernetes
+spec:
+    containers:
+        - name: c02
+          image: ubuntu
+          command: ["/bin/bash","-c","while true; do echo 'Hi labels2'; sleep 5; done"]

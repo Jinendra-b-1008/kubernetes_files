@@ -1,0 +1,18 @@
+kind: Pod
+apiVersion: v1
+metadata:
+    name: testpod3
+    annotations:
+         description: This is the description of the testpod3
+spec:
+    containers:
+        - name: con1
+          image: ubuntu
+          command: ["/bin/bash","-c","while true;do echo Hi Cont1; sleep 4; done"]
+
+        - name: con2
+          image: ubuntu
+          command: ["/bin/bash","-c","while true;do echo Hi Cont2; sleep 4; done"]
+
+
+

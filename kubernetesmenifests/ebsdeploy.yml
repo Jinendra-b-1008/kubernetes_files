@@ -1,0 +1,31 @@
+kind: Deployment
+apiVersion: apps/v1
+metadata:
+    name: ebsdeploy
+spec:
+   replicas: 2
+   selector:
+      matchLabels:
+        app: mypv
+
+   template:
+     metadata:
+       labels:
+         app: mypv 
+
+     spec:
+             
+        containers:
+          - name: c01
+            image: ubuntu
+            command: ["/bin/bash","-c","while true; do echo Hi Jiinuuu; sleep 5; done"]
+
+            volumeMounts:
+            - name: myvol
+              mountPath: "/tmp/contvol"
+
+        volumes:
+            - name: myvol
+              persistentVolumeClaim: 
+                  claimName: myebsvolclaim
+

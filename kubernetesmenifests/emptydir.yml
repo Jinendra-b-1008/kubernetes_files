@@ -1,0 +1,26 @@
+kind: Pod
+apiVersion: v1
+metadata:
+    name: myemptydir
+spec:
+   containers:
+       - name: c01
+         image: ubuntu
+         command: ["/bin/bash","-c","while true; do echo This is cont 01; sleep 1000; done"]
+
+         volumeMounts:
+              - name: myvol
+                mountPath: "/tmp/c01dir"
+
+       - name: c02
+         image: ubuntu
+         command: ["/bin/bash","-c","while true; do echo This is cont 02; sleep 1000; done"]
+
+         volumeMounts:
+              - name: myvol
+                mountPath: "/tmp/c02dir"
+       
+   volumes:
+       - name: myvol
+         emptyDir: {}
+
